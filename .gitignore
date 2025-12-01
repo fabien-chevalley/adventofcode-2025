@@ -347,4 +347,4 @@ AdventOfCode.Solutions/Year*/Day*/input
 .ionide
 
 # Advent of Code inputs
-/inputs
+/inputs*.input
