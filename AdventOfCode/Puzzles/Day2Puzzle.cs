@@ -23,10 +23,10 @@ public class Day2Puzzle : Puzzle
                 {
                     long result1 = digits
                         .Take(digits.Length / 2).ToArray()
-                        .Aggregate(0L, (acc, digit) => acc * 10L + digit);  // 12345
+                        .Aggregate(0L, (acc, digit) => acc * 10L + digit);
                     long result2 = digits
                         .TakeLast(digits.Length / 2).ToArray()
-                        .Aggregate(0L, (acc, digit) => acc * 10L + digit);  // 12345
+                        .Aggregate(0L, (acc, digit) => acc * 10L + digit);
 
                     if (result1 == result2)
                     {
@@ -41,10 +41,31 @@ public class Day2Puzzle : Puzzle
 
     public override async ValueTask<long> PartTwo()
     {
+        _lines = await File.ReadAllLinesAsync(Filename);
+
         long result = 0;
 
-        foreach (var line in _lines)
+        foreach (string range in _lines.SelectMany(x => x.Split(",")))
         {
+            var parts = range.Split('-');
+            var start = long.Parse(parts[0]);
+            var end = long.Parse(parts[1]);
+
+            for (long i = start; i <= end; i++)
+            {
+                var value = i.ToString();
+                
+                for(int ii = 1; ii < value.Length; ii++)
+                {
+                    var search = string.Concat(value.Take(ii));
+                    var match = string.Concat(value.Skip(ii)).Replace(search, string.Empty);
+                    if (match == string.Empty)
+                    {
+                        result += i;
+                        break;
+                    }
+                }
+            }
         }
 
         return result;
