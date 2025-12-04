@@ -9,7 +9,11 @@ public record Coordinates(int X, int Y)
         return
         [
             this with { X = X - distance },
+            this with { X = X - distance, Y = Y - distance },
+            this with { X = X - distance, Y = Y + distance },
             this with { X = X + distance },
+            this with { X = X + distance, Y = Y + distance },
+            this with { X = X + distance, Y = Y - distance },
             this with { Y = Y - distance },
             this with { Y = Y + distance }
         ];
