@@ -16,10 +16,9 @@
       <None Update="Inputs\*.input">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
-    </ItemGroup>
-    
-    <ItemGroup>
-      <Folder Include="Puzzles\" />
+      <None Update="Inputs\Day5Puzzle.input">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
