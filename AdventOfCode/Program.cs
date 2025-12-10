@@ -2,7 +2,7 @@
 using AdventOfCode.Puzzles;
 
 
-// await Solver.Solve<Day1Puzzle>();
+await Solver.Solve<Day10Puzzle>();
 
 // var mode = AnsiConsole.Prompt(
 //     new SelectionPrompt<string>()
@@ -18,4 +18,4 @@ using AdventOfCode.Puzzles;
 // if (mode == "last") await Solver.SolveLast();
 //
 // if (mode == "all") await Solver.SolveAll();
-await Solver.SolveLast();
+// await Solver.SolveLast();
